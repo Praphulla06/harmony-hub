@@ -1,20 +1,25 @@
 import 'package:flutter/material.dart';
+import 'package:harmony_hub/features/auth/presentation/pages/log_in_page.dart';
+import 'package:harmony_hub/features/auth/presentation/pages/register_page.dart';
 
-class AuthPage extends StatelessWidget {
+class AuthPage extends StatefulWidget {
   const AuthPage({super.key});
 
   @override
+  State<AuthPage> createState() => _AuthPageState();
+}
+
+class _AuthPageState extends State<AuthPage> {
+  bool showLogInPage = true;
+  @override
   Widget build(BuildContext context) {
+    void togglePage() {
+      setState(() {
+        showLogInPage = !showLogInPage;
+      });
+    }
+
     return Scaffold(
-      appBar: AppBar(
-        iconTheme: Theme.of(context).appBarTheme.iconTheme,
-        title: Text("Authentication"),
-        backgroundColor: Theme.of(context).appBarTheme.backgroundColor,
-        titleTextStyle: Theme.of(context).appBarTheme.titleTextStyle,
-      ),
-      body: Center(
-        child: Text("Auth Page", style: Theme.of(context).textTheme.bodyLarge),
-      ),
-    );
+        body: showLogInPage ? LogInPage(togglePage: togglePage) : RegisterPage(togglePage: togglePage));
   }
 }

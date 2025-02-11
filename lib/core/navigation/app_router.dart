@@ -3,13 +3,14 @@ import 'package:harmony_hub/features/auth/presentation/pages/auth_page.dart';
 import 'package:harmony_hub/features/home/presentation/pages/home_page.dart';
 import 'package:harmony_hub/features/notes/presentation/pages/note_page.dart';
 import 'package:harmony_hub/features/planner/presentation/pages/planner_page.dart';
+import 'package:harmony_hub/features/settings/presentation/pages/settings_page.dart';
 
 GoRouter goRouter = GoRouter(
-  initialLocation: '/',
   routes: [
-    GoRoute(path: '/', builder: (context, state) => HomePage()),
-    GoRoute(path: '/note', builder: (context, state) => NotePage()),
+    GoRoute(path: '/home', builder: (context, state) => HomePage()),
+    GoRoute(path: '/notes', builder: (context, state) => NotePage()),
     GoRoute(path: '/planner', builder: (context, state) => PlannerPage()),
+    GoRoute(path: '/settings', builder: (context, state) => SettingsPage()),
     GoRoute(path: '/auth', builder: (context, state) => AuthPage()),
-  ]
+  ],
 );
